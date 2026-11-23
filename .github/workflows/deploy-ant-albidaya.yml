@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - "ant-albidaya/**"
+      - "ant-albidaya-secondary/**"
       - ".github/workflows/deploy-ant-albidaya.yml"
   workflow_dispatch:
 permissions:
@@ -26,8 +27,9 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Prepare clean Pages directory
         run: |
-          mkdir -p _site
+          mkdir -p _site/ant-albidaya-secondary
           cp -Lr ant-albidaya/. _site/
+          cp -Lr ant-albidaya-secondary/. _site/ant-albidaya-secondary/
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
