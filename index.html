@@ -1,757 +1,89 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl" data-theme="dark">
+<!doctype html>
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#1a1a2e">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="الراكة الدعوية">
-<title>كلمات ودروس جمعية الراكة</title>
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="logo.png">
-<!-- مكتبة Font Awesome للأيقونات -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#073c2e"><meta name="description" content="دليل مساجد جمعية الراكة الدعوية">
+<link rel="manifest" href="manifest.json"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>مساجد جمعية الراكة الدعوية</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
-
-/* ===== الثيم الداكن ===== */
-[data-theme="dark"] {
-  --bg:#0f0f1a; --surface:#1a1a2e; --card:#16213e;
-  --accent:#c8a96e; --accent-soft:rgba(200,169,110,0.12);
-  --green:#4caf7d; --green-soft:rgba(76,175,125,0.12);
-  --red:#e05c5c; --red-soft:rgba(224,92,92,0.12);
-  --orange:#f0883e; --orange-soft:rgba(240,136,62,0.12);
-  --text:#eef0f5; --text-muted:#8892a4;
-  --border:rgba(255,255,255,0.06);
-  --header-bg:linear-gradient(135deg,#1a1a2e,#16213e);
-  --theme-icon: "☀️";
-  --nav-bg: #1a1a2e;
-  --icon-color: rgba(255,255,255,0.75);
-  --icon-hover: #fff;
-}
-
-/* ===== الثيم الفاتح ===== */
-[data-theme="light"] {
-  --bg:#f0f2f5; --surface:#ffffff; --card:#ffffff;
-  --accent:#3d5a8a; --accent-soft:rgba(61,90,138,0.1);
-  --green:#2e7d52; --green-soft:rgba(46,125,82,0.1);
-  --red:#c0392b; --red-soft:rgba(192,57,43,0.1);
-  --orange:#d35400; --orange-soft:rgba(211,84,0,0.1);
-  --text:#1a1a2e; --text-muted:#5a6a7a;
-  --border:rgba(0,0,0,0.08);
-  --header-bg:linear-gradient(135deg,#3d5a8a,#2c4270);
-  --theme-icon: "🌙";
-  --nav-bg: #ffffff;
-  --icon-color: rgba(0,0,0,0.6);
-  --icon-hover: var(--accent);
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Tajawal',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  min-height:100vh;
-  transition:background .3s,color .3s;
-  overflow-x:hidden;
-}
-
-/* ===== إصلاح هيكل الصفحات المنزلقة للجوال ===== */
-.app-outer {
-  width: 100%;
-  overflow: hidden;
-}
-.app-container {
-  display: flex;
-  width: 200%;
-  min-height: 100vh;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.page {
-  width: 50%;
-  flex-shrink: 0;
-  box-sizing: border-box;
-  padding-bottom: 90px;
-}
-
-/* ===== الهيدر ===== */
-.header{background:var(--header-bg);border-bottom:1px solid var(--border);padding:16px 16px 14px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.15);}
-.header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
-
-.logo-area{display:flex;align-items:center;gap:10px;}
-.logo-img{width:42px;height:42px;border-radius:10px;object-fit:contain;background:white;padding:3px;}
-.logo-text h1{font-size:14px;font-weight:800;color:#fff;line-height:1.2;}
-.logo-text p{font-size:10px;color:rgba(255,255,255,0.7);margin-top:1px;}
-
-.header-btns{display:flex;gap:8px;}
-.icon-btn{width:36px;height:36px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:10px;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
-.icon-btn:active{background:rgba(255,255,255,0.25);}
-
-/* زِر التثبيت في الهيدر */
-.btn-install-nav {
-  background: var(--accent) !important;
-  border-color: var(--accent) !important;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-/* ===== إحصائيات ===== */
-.stats-bar{display:flex;gap:8px;}
-.stat-chip{flex:1;border-radius:10px;padding:8px 6px;text-align:center;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);}
-.stat-chip .num{font-size:18px;font-weight:800;color:#fff;line-height:1;}
-.stat-chip .lbl{font-size:10px;color:rgba(255,255,255,0.7);margin-top:2px;}
-
-/* ===== مخرجات البحث والفلتر ===== */
-.controls{padding:10px 16px; display:flex; gap:8px;}
-.search-box{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 14px;color:var(--text);font-family:'Tajawal',sans-serif;font-size:14px;outline:none;transition:border-color .2s;}
-.search-box:focus{border-color:var(--accent);}
-.search-box::placeholder{color:var(--text-muted);}
-.filter-btn{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px;color:var(--text-muted);font-family:'Tajawal',sans-serif;font-size:12px;cursor:pointer;white-space:nowrap;transition:all .2s;}
-.filter-btn.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);}
-
-/* ===== البطاقات ===== */
-.cards-container{padding:4px 16px 40px;display:flex;flex-direction:column;gap:12px;}
-.section-label{font-size:11px;font-weight:700;color:var(--text-muted);padding:14px 0 4px;letter-spacing:.3px;}
-
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);transition:box-shadow .2s;}
-[data-theme="light"] .card{box-shadow:0 2px 12px rgba(0,0,0,0.08);}
-.card.c-urgent{border-color:rgba(224,92,92,0.35);}
-.card.c-soon{border-color:rgba(240,136,62,0.3);}
-.card.c-week{border-color:var(--accent);}
-
-.card-header{padding:14px 14px 10px;display:flex;align-items:flex-start;gap:10px;}
-.days-badge{min-width:56px;height:56px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;}
-.bd-today{background:var(--red-soft);}   .bd-today .dn,.bd-today .dl{color:var(--red);}
-.bd-urgent{background:var(--red-soft);}  .bd-urgent .dn,.bd-urgent .dl{color:var(--red);}
-.bd-soon{background:var(--orange-soft);} .bd-soon .dn,.bd-soon .dl{color:var(--orange);}
-.bd-week{background:var(--accent-soft);} .bd-week .dn,.bd-week .dl{color:var(--accent);}
-.bd-far{background:var(--green-soft);}     .bd-far .dn,.bd-far .dl{color:var(--green);}
-.dn{font-size:19px;font-weight:800;line-height:1;}
-.dl{font-size:9px;opacity:.85;margin-top:1px;}
-
-.card-info{flex:1;min-width:0;}
-.card-title{font-size:14px;font-weight:700;line-height:1.4;margin-bottom:4px;}
-.permit-num{font-size:10px;color:var(--text-muted);margin-bottom:6px;direction:ltr;text-align:right;}
-.card-meta{display:flex;flex-wrap:wrap;gap:5px;}
-.meta-tag{font-size:11px;color:var(--text-muted);background:var(--accent-soft);padding:3px 8px;border-radius:6px;}
-
-.card-footer{padding:8px 14px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);}
-.date-display{font-size:11px;color:var(--text-muted);}
-.designer-chip{font-size:11px;padding:3px 10px;border-radius:20px;background:var(--accent-soft);color:var(--accent);font-weight:500;}
-
-.design-wrap{padding:0 14px 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.toggle-btn{background:none;border:1px solid var(--border);border-radius:8px;color:var(--text-muted);font-family:'Tajawal',sans-serif;font-size:11px;cursor:pointer;padding:5px 10px;transition:all .2s;}
-.toggle-btn.has{border-color:var(--green);color:var(--green);background:var(--green-soft);}
-.design-section{overflow:hidden;max-height:0;transition:max-height .35s ease;}
-.design-section.open{max-height:500px;}
-
-.design-img{width:100%;display:block;max-height:320px;object-fit:contain;background:#0a0a15;border-top:1px solid var(--border);cursor:pointer;transition:transform 0.2s;}
-.design-img:hover{transform: scale(1.01);}
-
-[data-theme="light"] .design-img{background:#f8f8f8;}
-.notes-chip{font-size:10px;color:var(--text-muted);font-style:italic;}
-
-/* ===== صفحة التواصل ===== */
-.contact-container {
-  padding: 24px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 500px;
-  margin: 0 auto;
-}
-.contact-header-block {
-  text-align: center;
-  margin-bottom: 12px;
-}
-.contact-header-block h2 {
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--accent);
-}
-.contact-header-block p {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-top: 4px;
-}
-
-.contact-icons-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 18px;
-  padding: 30px 20px;
-  flex-wrap: nowrap;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-}
-
-.icon-link {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 26px;
-  color: var(--icon-color);
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-.icon-link:active {
-  transform: scale(0.9);
-  color: var(--icon-hover);
-}
-
-/* ===== شريط التنقل السفلي الثابت ===== */
-.bottom-nav {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  height: 64px;
-  background: var(--nav-bg);
-  border-top: 1px solid var(--border);
-  display: flex;
-  z-index: 1000;
-  box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
-}
-.nav-item {
-  flex: 1;
-  background: none;
-  border: none;
-  outline: none;
-  font-family: 'Tajawal', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text-muted);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  transition: color 0.2s;
-}
-.nav-item i {
-  font-size: 18px;
-}
-.nav-item.active {
-  color: var(--accent);
-}
-
-/* ===== النافذة المنبثقة العامة (للصورة ولتعليمات الآيفون) ===== */
-.image-modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  z-index: 2000;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.image-modal.active {
-  display: flex;
-  opacity: 1;
-}
-.modal-content {
-  max-width: 92%;
-  max-height: 85vh;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 4px 25px rgba(0,0,0,0.5);
-  transform: scale(0.9);
-  transition: transform 0.3s ease;
-}
-.image-modal.active .modal-content {
-  transform: scale(1);
-}
-.close-modal {
-  position: absolute;
-  top: 20px; right: 20px;
-  width: 40px; height: 40px;
-  background: rgba(255,255,255,0.2);
-  border: none; border-radius: 50%;
-  color: white; font-size: 20px; font-weight: bold;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  z-index: 2001;
-}
-
-/* نافذة تعليمات الآيفون المخصصة */
-.ios-instructions-card {
-  background: var(--surface);
-  border: 2px solid var(--accent);
-  border-radius: 20px;
-  padding: 24px;
-  width: 88%;
-  max-width: 400px;
-  color: var(--text);
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  transform: scale(0.9);
-  transition: transform 0.3s ease;
-}
-.image-modal.active .ios-instructions-card { transform: scale(1); }
-.ios-instructions-card h3 { font-size: 18px; margin-bottom: 14px; color: var(--accent); font-weight: 800; }
-.ios-instructions-card p { font-size: 14px; line-height: 1.6; margin-bottom: 16px; color: var(--text); }
-.ios-step { display: flex; align-items: center; gap: 12px; background: var(--card); padding: 10px 14px; border-radius: 12px; margin-bottom: 10px; text-align: right; font-size: 13px; border: 1px solid var(--border); }
-.ios-step i { font-size: 18px; color: var(--accent); width: 24px; text-align: center; }
-.ios-btn-done { background: var(--accent); color: #fff; border: none; padding: 10px 24px; border-radius: 10px; font-family: 'Tajawal', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; margin-top: 10px; width: 100%; }
-
-/* ===== Loading / Empty / Error ===== */
-.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;}
-.spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
-.loading p{color:var(--text-muted);font-size:14px;}
-.empty{text-align:center;padding:60px 20px;color:var(--text-muted);}
-.empty .emoji{font-size:48px;margin-bottom:12px;}
-.error-box{margin:20px 16px;background:var(--red-soft);border:1px solid rgba(224,92,92,0.2);border-radius:16px;padding:16px;font-size:13px;color:var(--red);line-height:1.7;}
-
-/* ===== FAB ===== */
-.fab {
-  position: fixed;
-  bottom: 80px; left: 16px;
-  width: 44px; height: 44px;
-  background: var(--accent);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  color: #fff;
-  font-weight: bold;
-  border: none;
-  z-index: 99;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-.fab.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
+:root{--green:#073c2e;--green2:#0b513d;--gold:#d6b66b;--cream:#f5ecd9;--paper:#fffaf0;--ink:#173b2e;--muted:#718078;--line:#e8dfcd;--shadow:0 12px 35px #062b2017}
+*{box-sizing:border-box}body{margin:0;background:var(--green);color:var(--ink);font-family:'Tajawal',sans-serif;background-image:radial-gradient(#ffffff0c 1px,transparent 1px);background-size:18px 18px}
+button,input{font:inherit}button{cursor:pointer}.shell{max-width:760px;margin:auto;min-height:100vh;background:var(--paper);box-shadow:0 0 50px #001b1440;position:relative;overflow:hidden}
+.top{background:var(--green);color:white;padding:22px 18px 18px;position:relative;overflow:hidden}.top:before{content:'';position:absolute;inset:-60px -30px auto auto;width:260px;height:260px;border:1px solid #d6b66b55;border-radius:48% 52% 50% 50%;transform:rotate(35deg)}.brand{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}.brand h1{font-size:22px;margin:0;font-weight:800}.brand p{margin:3px 0 0;color:#e7d7b1;font-size:13px}.brand-mark{width:46px;height:46px;border:1px solid var(--gold);border-radius:16px;display:grid;place-items:center;color:var(--gold);font-size:23px}
+.search-wrap{margin-top:20px;position:relative}.search-wrap input{width:100%;padding:14px 46px 14px 14px;border:1px solid #ffffff35;background:#ffffff12;border-radius:16px;color:white;outline:none}.search-wrap input::placeholder{color:#d4dfd9}.search-icon{position:absolute;right:16px;top:11px;font-size:21px;color:var(--gold)}
+main{padding:18px 14px 100px}.section-head{display:flex;align-items:center;justify-content:space-between;margin:4px 2px 14px}.section-head h2{font-size:19px;margin:0;color:var(--green)}.section-head span{font-size:12px;color:var(--muted)}
+.prayer-card{background:linear-gradient(135deg,#f1e4c9,#fff8e9);border:1px solid #dfc88f;border-radius:22px;padding:17px;margin-bottom:24px;box-shadow:var(--shadow)}.prayer-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.prayer-title strong{font-size:18px;color:var(--green)}.prayer-title small{color:#756a53}.prayer-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}.prayer{text-align:center;border-left:1px solid #ddcfb2;padding:5px 2px}.prayer:last-child{border:0}.prayer .picon{font-size:20px}.prayer b{display:block;font-size:13px;margin:5px 0 1px}.prayer time{font-size:16px;font-weight:800;color:var(--green)}.source-note{font-size:10px;color:#84785e;margin-top:10px;text-align:left}
+.mosque-list{display:grid;gap:14px}.mosque-card{background:white;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer;transition:transform .2s}.mosque-card:active{transform:scale(.99)}.mosque-card img{width:100%;height:190px;object-fit:cover;display:block;background:#e9e2d4}.mosque-body{padding:14px 15px 16px}.mosque-body h3{font-size:19px;margin:0 0 6px;color:var(--green)}.mosque-meta{display:flex;flex-wrap:wrap;gap:7px;color:var(--muted);font-size:13px}.tag{background:#edf3ee;color:#286047;border-radius:30px;padding:5px 10px}.empty,.loading{padding:45px 15px;text-align:center;color:var(--muted)}.loading:before{content:'';display:block;width:27px;height:27px;border:3px solid #d7e2db;border-top-color:var(--green);border-radius:50%;margin:0 auto 12px;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(760px,100%);background:#fffdf7ed;backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;justify-content:center;padding:12px 15px calc(12px + env(safe-area-inset-bottom));z-index:5}.bottom a{color:var(--green);text-decoration:none;font-weight:700;font-size:13px}
+.modal{position:fixed;inset:0;background:#001b15b8;z-index:10;display:none;overflow:auto;padding:18px}.modal.show{display:block}.detail{max-width:650px;margin:20px auto;background:var(--paper);border-radius:24px;overflow:hidden;box-shadow:0 20px 60px #0005}.detail-cover{height:245px;position:relative;background:#ddd}.detail-cover img{width:100%;height:100%;object-fit:cover}.close{position:absolute;top:12px;right:12px;border:0;border-radius:50%;width:40px;height:40px;background:#073c2ecc;color:white;font-size:22px}.detail-content{padding:18px}.detail-content h2{color:var(--green);margin:0 0 8px;font-size:24px}.info-row{padding:13px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:center}.info-row .symbol{font-size:22px;color:var(--green)}.info-row small{display:block;color:var(--muted);margin-bottom:2px}.imam{display:flex;align-items:center;gap:13px;background:#f3ead8;padding:12px;border-radius:17px;margin-top:14px}.imam img{width:78px;height:78px;border-radius:14px;object-fit:cover;background:#ddd}.imam strong{font-size:17px}.audio{width:100%;margin-top:10px;height:38px}.actions{display:flex;gap:9px;margin-top:15px}.action{flex:1;text-align:center;text-decoration:none;border-radius:13px;padding:12px 8px;background:var(--green);color:white;font-weight:700}.action.secondary{background:#e9dfc9;color:var(--green)}
+@media(min-width:600px){main{padding:24px}.mosque-list{grid-template-columns:repeat(2,minmax(0,1fr))}.mosque-card img{height:180px}}
 </style>
 </head>
-<body>
-
-<div class="app-outer">
-  <div class="app-container" id="appContainer">
-    
-    <!-- ================= الصفحة الأولى: الدروس ================= -->
-    <div class="page" id="lessonsPage">
-      <div class="header">
-        <div class="header-top">
-          <div class="logo-area">
-            <img class="logo-img" src="logo.png" alt="شعار الراكة">
-            <div class="logo-text">
-              <h1>كلمات ودروس الراكة</h1>
-              <p id="last-update">جمعية الراكة الدعوية</p>
-            </div>
-          </div>
-          <div class="header-btns">
-            <!-- زر التثبيت الذكي المضاف بجانب زر الثيم -->
-            <button class="icon-btn btn-install-nav" onclick="handleInstallClick()" title="تحميل التطبيق"><i class="fa-solid fa-download"></i></button>
-            <button class="icon-btn" id="theme-btn" onclick="toggleTheme()" title="تغيير الثيم">☀️</button>
-            <button class="icon-btn" onclick="loadData()" title="تحديث">↻</button>
-          </div>
-        </div>
-        <div class="stats-bar">
-          <div class="stat-chip"><div class="num" id="s1">—</div><div class="lbl">كلمة قادمة</div></div>
-          <div class="stat-chip"><div class="num" id="s2">—</div><div class="lbl">جاهز الإعلان</div></div>
-        </div>
-      </div>
-
-      <div class="controls">
-        <input class="search-box" type="text" placeholder="🔍  بحث بالعنوان أو الشيخ أو الموقع..." id="q" oninput="render()">
-        <button class="filter-btn" id="fb" onclick="toggleFilter()">بدون إعلان</button>
-      </div>
-
-      <div id="content">
-        <div class="loading"><div class="spinner"></div><p>جارٍ تحميل البيانات...</p></div>
-      </div>
-      <button class="fab" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-    </div>
-
-    <!-- ================= الصفحة الثانية: التواصل ================= -->
-    <div class="page" id="contactPage">
-      <div class="header">
-        <div class="header-top">
-          <div class="logo-area">
-            <img class="logo-img" src="logo.png" alt="شعار الراكة">
-            <div class="logo-text">
-              <h1>تواصل معنا</h1>
-              <p>جمعية الراكة الدعوية</p>
-            </div>
-          </div>
-          <div class="header-btns">
-            <!-- زر التثبيت الذكي المضاف في صفحة التواصل أيضاً -->
-            <button class="icon-btn btn-install-nav" onclick="handleInstallClick()" title="تحميل التطبيق"><i class="fa-solid fa-download"></i></button>
-            <button class="icon-btn" id="theme-btn-contact" onclick="toggleTheme()" title="تغيير الثيم">☀️</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-container">
-        <div class="contact-header-block">
-          <h2>قنوات الاتصال الرسمية</h2>
-          <p>يسعدنا تواصلكم معنا عبر المنصات التالية</p>
-        </div>
-
-        <!-- شريط أيقونات التواصل الاجتماعي -->
-        <div class="contact-icons-row">
-          <a href="https://wa.me/966557584477" target="_blank" class="icon-link"><i class="fa-brands fa-whatsapp" style="color: #4caf7d;"></i></a>
-          <a href="tel:0580956015" class="icon-link"><i class="fa-solid fa-phone" style="color: #3d5a8a;"></i></a>
-          <a href="https://www.youtube.com/channel/UCW-ewVbC8vGdOf2cV9JgmtA" target="_blank" class="icon-link"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i></a>
-          <a href="https://twitter.com/TawnieRaka" target="_blank" class="icon-link"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="https://www.facebook.com/Alrakah1445" target="_blank" class="icon-link"><i class="fa-brands fa-facebook-f" style="color: #1877f2;"></i></a>
-          <a href="https://store.dawah-rakah.org.sa/" target="_blank" class="icon-link"><i class="fa-solid fa-globe" style="color: #c8a96e;"></i></a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ===== شريط التنقل السفلي الثابت ===== -->
-<div class="bottom-nav">
-  <button class="nav-item active" id="btnNavLessons" onclick="switchPage('lessons')">
-    <i>📚</i>
-    <span>الدروس</span>
-  </button>
-  <button class="nav-item" id="btnNavContact" onclick="switchPage('contact')">
-    <i>📞</i>
-    <span>للتواصل</span>
-  </button>
-</div>
-
-<!-- النافذة المنبثقة العامة (للصور ولتعليمات الآيفون) -->
-<div id="generalModal" class="image-modal" onclick="closeModal()">
-  <button class="close-modal" onclick="closeModal()">&times;</button>
-  
-  <!-- محتوى الصورة (يظهر عند تكبير الإعلان) -->
-  <img id="modalImg" class="modal-content" src="" alt="الإعلان بالحجم الكامل" onclick="event.stopPropagation()" style="display:none;">
-  
-  <!-- محتوى تعليمات الآيفون (يظهر عند الضغط على زر التنزيل من جهاز iOS) -->
-  <div id="iosInstructions" class="ios-instructions-card" onclick="event.stopPropagation()" style="display:none;">
-    <h3>تثبيت التطبيق على الآيفون</h3>
-    <p>نظام iOS يتطلب التثبيت يدوياً عبر متصفح سفاري باتباع الخطوات البسيطة التالية:</p>
-    
-    <div class="ios-step">
-      <i class="fa-solid fa-arrow-up-from-bracket"></i>
-      <span>1. اضغط على زر <b>المشاركة</b> في شريط سفاري السفلي.</span>
-    </div>
-    
-    <div class="ios-step">
-      <i class="fa-regular fa-square-plus"></i>
-      <span>2. قم بالتمرير لأسفل واختر <b>إضافة إلى الصفحة الرئيسية</b>.</span>
-    </div>
-    
-    <div class="ios-step">
-      <i class="fa-solid fa-check"></i>
-      <span>3. اضغط على <b>إضافة</b> في أعلى اليسار لتجد التطبيق في جهازك.</span>
-    </div>
-    
-    <button class="ios-btn-done" onclick="closeModal()">فهمت</button>
-  </div>
-</div>
-
+<body><div class="shell">
+<header class="top"><div class="brand"><div><h1>مساجد جمعية الراكة</h1><p>دليل المساجد والمعلومات والخدمات</p></div><div class="brand-mark">۞</div></div><div class="search-wrap"><span class="search-icon">⌕</span><input id="search" type="search" placeholder="ابحث باسم المسجد أو الحي..." autocomplete="off"></div></header>
+<main>
+<section class="prayer-card"><div class="prayer-title"><strong>أوقات الصلاة في الدمام</strong><small id="prayer-date">جارٍ التحديث...</small></div><div class="prayer-grid" id="prayer-grid"><div class="loading" style="grid-column:1/-1">جارٍ تحميل المواقيت</div></div><div class="source-note" id="prayer-source">المواقيت محسوبة آلياً حسب إعدادات أم القرى</div></section>
+<div class="section-head"><h2>مساجدنا</h2><span id="mosque-count">—</span></div>
+<div id="mosque-list" class="mosque-list"><div class="loading">جارٍ تحميل المساجد</div></div>
+</main><nav class="bottom"><a href="https://dawah-rakah.org.sa/" target="_blank" rel="noopener">جمعية الراكة الدعوية · تواصل معنا</a></nav></div>
+<div class="modal" id="detail-modal" role="dialog" aria-modal="true"><div class="detail"><div class="detail-cover"><img id="d-image" alt="صورة المسجد"><button class="close" id="close-detail" aria-label="إغلاق">×</button></div><div class="detail-content"><h2 id="d-name"></h2><div id="d-location" class="mosque-meta"></div><div class="info-row"><span class="symbol">📍</span><div><small>الموقع</small><strong id="d-address">—</strong></div></div><div class="info-row"><span class="symbol">🕌</span><div><small>صلاة الجمعة</small><strong id="d-friday">—</strong></div></div><div class="imam"><img id="d-imam-photo" alt="صورة الإمام"><div style="flex:1"><small style="color:#718078">إمام المسجد</small><strong id="d-imam">غير محدد</strong><audio id="d-audio" class="audio" controls style="display:none"></audio></div></div><div class="actions"><a id="d-map" class="action" target="_blank" rel="noopener">الاتجاه إلى المسجد</a><button id="share-mosque" class="action secondary">مشاركة المسجد</button></div></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const SID = '1dmh2EZ0BoFR-352eK4tqEezqzyRKIi_9bOMDmZogk6w';
-let rows = [], noDesignOnly = false;
-let currentPage = 'lessons';
-let deferredPrompt = null;
-
-// التقاط حدث التثبيت التلقائي للأندرويد والكمبيوتر
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-});
-
-// ميكانيكية الزر الذكي عند الضغط عليه
-function handleInstallClick() {
-  // 1. فحص ما إذا كان الجهاز آيفون أو آيباد (iOS)
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  
-  if (isIOS) {
-    // إظهار نافذة التعليمات المخصصة للآيفون
-    const modal = document.getElementById('generalModal');
-    document.getElementById('modalImg').style.display = 'none';
-    document.getElementById('iosInstructions').style.display = 'block';
-    modal.classList.add('active');
-  } else {
-    // لأجهزة الأندرويد والكمبيوتر: تشغيل ميزة التنزيل إذا كانت جاهزة
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the PWA install');
-        }
-        deferredPrompt = null;
-      });
-    } else {
-      // تلميح بديل إذا لم يكن الحدث جاهزاً بعد أو كان التطبيق مثبتاً بالفعل
-      alert('ميزة التثبيت التلقائي مدعومة بالكامل عبر متصفح Google Chrome الرسمي، إذا لم تظهر لك النافذة يمكنك الضغط على خيارات المتصفح (⋮) ثم اختيار "تثبيت التطبيق".');
-    }
-  }
+const SUPABASE_URL='https://caxtxwgxpfugiviaahwx.supabase.co';
+const SUPABASE_KEY='sb_publishable_TSi0GlkTfXHN0ebrGru8Pg_ANNWLbzF';
+const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const FALLBACK_IMAGE='https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1000&q=85';
+let mosques=[];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function dateParts(){const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Riyadh',day:'2-digit',month:'2-digit',year:'numeric'}).formatToParts(new Date());const v={};p.forEach(x=>v[x.type]=x.value);return v.day+'-'+v.month+'-'+v.year}
+function fmtTime(value){if(!value)return'—';const parts=value.split(':');let h=Number(parts[0]),m=parts[1]||'00';const ap=h>=12?'م':'ص';h=h%12||12;return h+':'+m+' '+ap}
+async function loadPrayerTimes(){
+ const grid=document.getElementById('prayer-grid');
+ try{
+  const url='https://api.aladhan.com/v1/timings/'+dateParts()+'?latitude=26.4207&longitude=50.0888&method=4&school=0&timezonestring=Asia%2FRiyadh';
+  const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw new Error('API '+response.status);
+  const json=await response.json();if(json.code!==200)throw new Error('Prayer API error');
+  const t=json.data.timings;const items=[['الفجر',t.Fajr,'🌅'],['الظهر',t.Dhuhr,'☀️'],['العصر',t.Asr,'🌤️'],['المغرب',t.Maghrib,'🌇'],['العشاء',t.Isha,'🌙']];
+  grid.innerHTML=items.map(x=>'<div class="prayer"><div class="picon">'+x[2]+'</div><b>'+x[0]+'</b><time>'+fmtTime(x[1])+'</time></div>').join('');
+  document.getElementById('prayer-date').textContent=new Intl.DateTimeFormat('ar-SA',{dateStyle:'full',timeZone:'Asia/Riyadh'}).format(new Date());
+ }catch(e){grid.innerHTML='<div class="empty" style="grid-column:1/-1">تعذّر جلب أوقات الصلاة حالياً. تحقق من الاتصال بالإنترنت.</div>';document.getElementById('prayer-date').textContent='';}
 }
-
-function openImage(url) {
-  const modal = document.getElementById('generalModal');
-  document.getElementById('iosInstructions').style.display = 'none';
-  const modalImg = document.getElementById('modalImg');
-  modalImg.src = url;
-  modalImg.style.display = 'block';
-  modal.classList.add('active');
+function renderMosques(){
+ const q=document.getElementById('search').value.trim().toLowerCase();
+ const filtered=mosques.filter(m=>[m.name,m.district,m.address,m.city].some(v=>String(v||'').toLowerCase().includes(q)));
+ document.getElementById('mosque-count').textContent=filtered.length+' مسجد';
+ const root=document.getElementById('mosque-list');
+ if(!filtered.length){root.innerHTML='<div class="empty">لا توجد مساجد مطابقة للبحث حالياً</div>';return}
+ root.innerHTML=filtered.map(m=>'<article class="mosque-card" data-id="'+m.id+'"><img src="'+esc(m.image_url||FALLBACK_IMAGE)+'" alt="'+esc(m.name)+'" loading="lazy" onerror="this.src=FALLBACK_IMAGE"><div class="mosque-body"><h3>'+esc(m.name)+'</h3><div class="mosque-meta">'+(m.district?'<span class="tag">📍 '+esc(m.district)+'</span>':'')+(m.imam_name?'<span class="tag">الإمام: '+esc(m.imam_name)+'</span>':'')+'</div></div></article>').join('');
+ root.querySelectorAll('.mosque-card').forEach(el=>el.addEventListener('click',()=>openMosque(el.dataset.id)));
 }
-
-function closeModal() {
-  const modal = document.getElementById('generalModal');
-  modal.classList.remove('active');
-  setTimeout(() => { 
-    document.getElementById('modalImg').src = ''; 
-    document.getElementById('modalImg').style.display = 'none';
-    document.getElementById('iosInstructions').style.display = 'none';
-  }, 300);
+async function loadMosques(){
+ const root=document.getElementById('mosque-list');
+ const {data,error}=await db.from('mosques').select('*').eq('active',true).order('sort_order').order('name');
+ if(error){root.innerHTML='<div class="empty">تعذّر تحميل قائمة المساجد. يرجى المحاولة لاحقاً.</div>';return}
+ mosques=data||[];renderMosques();
 }
-
-// ===== إصلاح الـ Slide الفعلي المتوافق مع الـ RTL للجوال =====
-function switchPage(pageName) {
-  const container = document.getElementById('appContainer');
-  const btnLessons = document.getElementById('btnNavLessons');
-  const btnContact = document.getElementById('btnNavContact');
-  currentPage = pageName;
-  
-  if (pageName === 'lessons') {
-    container.style.transform = 'translateX(0%)';
-    btnLessons.classList.add('active');
-    btnContact.classList.remove('active');
-    window.scrollTo({top: 0});
-    handleScroll();
-  } else if (pageName === 'contact') {
-    container.style.transform = 'translateX(50%)'; 
-    btnContact.classList.add('active');
-    btnLessons.classList.remove('active');
-    window.scrollTo({top: 0});
-    document.getElementById('scrollTopBtn').classList.remove('visible');
-  }
+function openMosque(id){
+ const m=mosques.find(x=>x.id===id);if(!m)return;
+ document.getElementById('d-image').src=m.image_url||FALLBACK_IMAGE;
+ document.getElementById('d-name').textContent=m.name;
+ document.getElementById('d-location').textContent=[m.city,m.district].filter(Boolean).join(' · ');
+ document.getElementById('d-address').textContent=m.address||[m.district,m.city].filter(Boolean).join('، ')||'غير محدد';
+ document.getElementById('d-friday').textContent=m.friday_prayer?'تقام صلاة الجمعة في هذا المسجد':'لا تقام صلاة الجمعة في هذا المسجد';
+ document.getElementById('d-imam').textContent=m.imam_name||'لم تتم إضافة اسم الإمام';
+ document.getElementById('d-imam-photo').src=m.imam_photo_url||FALLBACK_IMAGE;
+ const audio=document.getElementById('d-audio');audio.style.display=m.recitation_url?'block':'none';audio.src=m.recitation_url||'';
+ const map=document.getElementById('d-map');map.href=(m.latitude&&m.longitude)?'https://www.google.com/maps/dir/?api=1&destination='+m.latitude+','+m.longitude:'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent([m.name,m.address,m.city].filter(Boolean).join(' '));
+ document.getElementById('share-mosque').onclick=()=>{const text=m.name+' - '+[m.address,m.district,m.city].filter(Boolean).join('، ');if(navigator.share)navigator.share({title:m.name,text:text,url:location.href+'#mosque-'+m.id}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(text).then(()=>alert('تم نسخ معلومات المسجد'))};
+ document.getElementById('detail-modal').classList.add('show');document.body.style.overflow='hidden';
 }
-
-function handleScroll() {
-  const scrollBtn = document.getElementById('scrollTopBtn');
-  if (currentPage === 'lessons' && window.scrollY > 200) {
-    scrollBtn.classList.add('visible');
-  } else {
-    scrollBtn.classList.remove('visible');
-  }
-}
-window.addEventListener('scroll', handleScroll);
-
-// ===== الثيم =====
-function initTheme() {
-  const saved = localStorage.getItem('theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', saved);
-  const icon = saved === 'dark' ? '☀️' : '🌙';
-  document.getElementById('theme-btn').textContent = icon;
-  if(document.getElementById('theme-btn-contact')) {
-    document.getElementById('theme-btn-contact').textContent = icon;
-  }
-}
-function toggleTheme() {
-  const curr = document.documentElement.getAttribute('data-theme');
-  const next = curr === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-  const icon = next === 'dark' ? '☀️' : '🌙';
-  document.getElementById('theme-btn').textContent = icon;
-  if(document.getElementById('theme-btn-contact')) {
-    document.getElementById('theme-btn-contact').textContent = icon;
-  }
-}
-initTheme();
-
-// ===== قراءة التاريخ =====
-function parseGregDate(rawStr, fmtStr) {
-  if (fmtStr) {
-    const s = String(fmtStr).trim();
-    const pm = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
-    if (pm) {
-      const d = new Date(parseInt(pm[3]), parseInt(pm[1])-1, parseInt(pm[2]));
-      d.setHours(0,0,0,0); return d;
-    }
-  }
-  if (rawStr) {
-    const s = String(rawStr).trim();
-    const dm = s.match(/Date\((\d+),(\d+),(\d+)\)/);
-    if (dm) {
-      const d = new Date(parseInt(dm[1]), parseInt(dm[2]), parseInt(dm[3]));
-      d.setHours(0,0,0,0); return d;
-    }
-  }
-  return null;
-}
-
-// ===== تحميل البيانات =====
-async function loadData() {
-  document.getElementById('content').innerHTML =
-    '<div class="loading"><div class="spinner"></div><p>جارٍ تحميل البيانات...</p></div>';
-  try {
-    const url = `https://docs.google.com/spreadsheets/d/${SID}/gviz/tq?tqx=out:json`;
-    const res = await fetch(url);
-    const txt = await res.text();
-    const json = JSON.parse(txt.match(/setResponse\(([\s\S]*)\)/)[1]);
-
-    const today = new Date(); today.setHours(0,0,0,0);
-    rows = [];
-
-    for (const r of json.table.rows) {
-      const c = r.c;
-      if (!c) continue;
-      const gVal = i => (c[i] && c[i].v != null) ? String(c[i].v).trim() : '';
-      const gRaw = i => (c[i] && c[i].v != null) ? c[i].v : null;
-      const gFmt = i => (c[i] && c[i].f != null) ? String(c[i].f).trim() : gVal(i);
-
-      const eventDate = parseGregDate(String(gRaw(6) || ''), gFmt(6));
-      if (!eventDate) continue;
-
-      const diff = Math.round((eventDate - today) / 86400000);
-      if (diff < 0) continue;
-
-      const designLink = gVal(14);
-      const archiveVal = gVal(13);
-      const hasDesign = designLink.length > 0 || archiveVal.includes('تمت') || archiveVal.includes('✅');
-      let imgUrl = null;
-      if (designLink.includes('drive.google.com')) {
-        const id = (designLink.match(/\/d\/([a-zA-Z0-9_-]+)/) || [])[1];
-        if (id) imgUrl = `https://drive.google.com/thumbnail?id=${id}&sz=w600`;
-      }
-
-      rows.push({
-        diff, dateDisplay: gFmt(6) || gVal(6),
-        type: gVal(1),
-        permitNum: gVal(2),
-        title: gVal(3), sheikh: gVal(4),
-        day: gVal(5), dateHijri: gVal(7),
-        time: gVal(8), location: gVal(9),
-        designer: gVal(11), notes: gVal(12),
-        designLink, hasDesign, imgUrl
-      });
-    }
-
-    rows.sort((a,b) => a.diff - b.diff);
-    document.getElementById('s1').textContent = rows.length;
-    document.getElementById('s2').textContent = rows.filter(r=>r.hasDesign).length;
-    render();
-
-    const n = new Date();
-    document.getElementById('last-update').textContent =
-      `آخر تحديث: ${n.getHours()}:${String(n.getMinutes()).padStart(2,'0')}`;
-  } catch(e) {
-    document.getElementById('content').innerHTML =
-      `<div class="error-box">⚠️ تعذّر تحميل البيانات<br><br>تأكد من الاتصال بالإنترنت then اضغط ↻<br><small>${e.message}</small></div>`;
-  }
-}
-
-function toggleFilter() {
-  noDesignOnly = !noDesignOnly;
-  document.getElementById('fb').classList.toggle('active', noDesignOnly);
-  document.getElementById('fb').textContent = noDesignOnly ? '✓ بدون إعلان' : 'بدون إعلان';
-  render();
-}
-
-function render() {
-  const q = document.getElementById('q').value.trim().toLowerCase();
-  const filtered = rows.filter(r => {
-    const ms = !q || [r.title,r.sheikh,r.location,r.type,r.permitNum].some(x=>x.toLowerCase().includes(q));
-    return ms && (!noDesignOnly || !r.hasDesign);
-  });
-
-  if (!filtered.length) {
-    document.getElementById('content').innerHTML =
-      '<div class="empty"><div class="emoji">🔍</div><p>لا توجد نتائج</p></div>';
-    return;
-  }
-
-  const bc = d => d===0?'bd-today':d<=2?'bd-urgent':d<=5?'bd-soon':d<=14?'bd-week':'bd-far';
-  const cc = d => d<=2?'c-urgent':d<=5?'c-soon':d<=14?'c-week':'';
-  const sec = d => d===0?'🔴 اليوم':d<=3?'🟠 خلال 3 أيام':d<=7?'🟡 هذا الأسبوع':d<=14?'🟢 خلال أسبوعين':'📅 لاحقاً';
-
-  let html = '<div class="cards-container">';
-  let lastSec = null;
-
-  filtered.forEach((r,i) => {
-    const s = sec(r.diff);
-    if (s !== lastSec) { html += `<div class="section-label">${s}</div>`; lastSec = s; }
-
-    const dayTxt = r.diff===0?'اليوم':r.diff===1?'غداً':String(r.diff);
-    const dayLbl = r.diff<=1?'':' يوم';
-
-    const designBtn = r.imgUrl
-      ? `<button class="toggle-btn has" onclick="toggleImg(event,${i})">🖼️ عرض الإعلان ▾</button>`
-      : r.designLink
-      ? `<a class="toggle-btn has" style="text-decoration:none" href="${r.designLink}" target="_blank">🔗 فتح الإعلان</a>`
-      : `<span class="toggle-btn" style="opacity:.4;pointer-events:none">لا يوجد إعلان</span>`;
-
-    const imgSec = r.imgUrl
-      ? `<div class="design-section" id="ds${i}">
-           <img class="design-img" src="${r.imgUrl}" title="اضغط لتكبير الإعلان"
-             onclick="openImage('${r.imgUrl}')"
-             onerror="this.outerHTML='<div style=padding:12px;text-align:center;font-size:12px;color:var(--text-muted)>⚠️ تعذّر عرض الصورة — <a href=${r.designLink} target=_blank style=color:var(--accent)>فتح الرابط</a></div>'"
-             loading="lazy">
-         </div>` : '';
-
-    html += `
-    <div class="card ${cc(r.diff)}">
-      <div class="card-header">
-        <div class="days-badge ${bc(r.diff)}">
-          <span class="dn">${dayTxt}</span>
-          <span class="dl">${dayLbl}</span>
-        </div>
-        <div class="card-info">
-          <div class="card-title">${r.title||'—'}</div>
-          ${r.permitNum?`<div class="permit-num">رقم الفسح: ${r.permitNum}</div>`:''}
-          <div class="card-meta">
-            ${r.sheikh?`<span class="meta-tag">🎤 ${r.sheikh}</span>`:''}
-            ${r.location?`<span class="meta-tag">📍 ${r.location}</span>`:''}
-            ${r.time?`<span class="meta-tag">🕐 ${r.time}</span>`:''}
-            ${r.type?`<span class="meta-tag">${r.type}</span>`:''}
-          </div>
-        </div>
-      </div>
-      ${imgSec}
-      <div class="design-wrap">
-        ${designBtn}
-        ${r.notes?`<span class="notes-chip">📝 ${r.notes}</span>`:''}
-      </div>
-      <div class="card-footer">
-        <div class="date-display">🗓️ ${r.dateHijri||''}${r.dateDisplay?' · '+r.dateDisplay:''}${r.day?' · '+r.day:''}</div>
-        ${r.designer?`<div class="designer-chip">🎨 ${r.designer}</div>`:''}
-      </div>
-    </div>`;
-  });
-
-  html += '</div>';
-  document.getElementById('content').innerHTML = html;
-}
-
-function toggleImg(e,i) {
-  const s = document.getElementById('ds'+i);
-  if (!s) return;
-  s.classList.toggle('open');
-  e.currentTarget.textContent = s.classList.contains('open')
-    ? '🖼️ إخفاء الإعلان ▴' : '🖼️ عرض الإعلان ▾';
-}
-
-loadData();
-if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
-</script>
-</body>
-</html>
+function closeDetail(){document.getElementById('detail-modal').classList.remove('show');document.body.style.overflow=''}
+document.getElementById('close-detail').addEventListener('click',closeDetail);
+document.getElementById('detail-modal').addEventListener('click',e=>{if(e.target.id==='detail-modal')closeDetail()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail()});
+document.getElementById('search').addEventListener('input',renderMosques);
+loadPrayerTimes();loadMosques();
+setInterval(loadPrayerTimes,60*60*1000);
+if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+</script></body></html>
