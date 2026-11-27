@@ -1,7 +1,7 @@
 {
-  "name": "مساجد جمعية الراكة الدعوية",
-  "short_name": "مساجد الراكة",
-  "description": "دليل مساجد جمعية الراكة الدعوية ومعلومات الأئمة وأوقات الصلاة",
+  "name": "محاريب | دليل المساجد",
+  "short_name": "محاريب",
+  "description": "دليل محاريب | دليل المساجد ومعلومات الأئمة وأوقات الصلاة",
   "start_url": "/klimat/mosques/",
   "display": "standalone",
   "background_color": "#f5ecd9",
