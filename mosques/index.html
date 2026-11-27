@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#073c2e"><meta name="description" content="دليل مساجد جمعية الراكة الدعوية">
+<link rel="manifest" href="manifest.json"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>مساجد جمعية الراكة الدعوية</title>
+<style>
+:root{--green:#073c2e;--green2:#0b513d;--gold:#d6b66b;--cream:#f5ecd9;--paper:#fffaf0;--ink:#173b2e;--muted:#718078;--line:#e8dfcd;--shadow:0 12px 35px #062b2017}
+*{box-sizing:border-box}body{margin:0;background:var(--green);color:var(--ink);font-family:'Tajawal',sans-serif;background-image:radial-gradient(#ffffff0c 1px,transparent 1px);background-size:18px 18px}
+button,input{font:inherit}button{cursor:pointer}.shell{max-width:760px;margin:auto;min-height:100vh;background:var(--paper);box-shadow:0 0 50px #001b1440;position:relative;overflow:hidden}
+.top{background:var(--green);color:white;padding:22px 18px 18px;position:relative;overflow:hidden}.top:before{content:'';position:absolute;inset:-60px -30px auto auto;width:260px;height:260px;border:1px solid #d6b66b55;border-radius:48% 52% 50% 50%;transform:rotate(35deg)}.brand{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}.brand h1{font-size:22px;margin:0;font-weight:800}.brand p{margin:3px 0 0;color:#e7d7b1;font-size:13px}.brand-mark{width:46px;height:46px;border:1px solid var(--gold);border-radius:16px;display:grid;place-items:center;color:var(--gold);font-size:23px}
+.search-wrap{margin-top:20px;position:relative}.search-wrap input{width:100%;padding:14px 46px 14px 14px;border:1px solid #ffffff35;background:#ffffff12;border-radius:16px;color:white;outline:none}.search-wrap input::placeholder{color:#d4dfd9}.search-icon{position:absolute;right:16px;top:11px;font-size:21px;color:var(--gold)}
+main{padding:18px 14px 100px}.section-head{display:flex;align-items:center;justify-content:space-between;margin:4px 2px 14px}.section-head h2{font-size:19px;margin:0;color:var(--green)}.section-head span{font-size:12px;color:var(--muted)}
+.prayer-card{background:linear-gradient(135deg,#f1e4c9,#fff8e9);border:1px solid #dfc88f;border-radius:22px;padding:17px;margin-bottom:24px;box-shadow:var(--shadow)}.prayer-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.prayer-title strong{font-size:18px;color:var(--green)}.prayer-title small{color:#756a53}.prayer-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}.prayer{text-align:center;border-left:1px solid #ddcfb2;padding:5px 2px}.prayer:last-child{border:0}.prayer .picon{font-size:20px}.prayer b{display:block;font-size:13px;margin:5px 0 1px}.prayer time{font-size:16px;font-weight:800;color:var(--green)}.source-note{font-size:10px;color:#84785e;margin-top:10px;text-align:left}
+.mosque-list{display:grid;gap:14px}.mosque-card{background:white;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer;transition:transform .2s}.mosque-card:active{transform:scale(.99)}.mosque-card img{width:100%;height:190px;object-fit:cover;display:block;background:#e9e2d4}.mosque-body{padding:14px 15px 16px}.mosque-body h3{font-size:19px;margin:0 0 6px;color:var(--green)}.mosque-meta{display:flex;flex-wrap:wrap;gap:7px;color:var(--muted);font-size:13px}.tag{background:#edf3ee;color:#286047;border-radius:30px;padding:5px 10px}.empty,.loading{padding:45px 15px;text-align:center;color:var(--muted)}.loading:before{content:'';display:block;width:27px;height:27px;border:3px solid #d7e2db;border-top-color:var(--green);border-radius:50%;margin:0 auto 12px;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(760px,100%);background:#fffdf7ed;backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;justify-content:center;padding:12px 15px calc(12px + env(safe-area-inset-bottom));z-index:5}.bottom a{color:var(--green);text-decoration:none;font-weight:700;font-size:13px}
+.modal{position:fixed;inset:0;background:#001b15b8;z-index:10;display:none;overflow:auto;padding:18px}.modal.show{display:block}.detail{max-width:650px;margin:20px auto;background:var(--paper);border-radius:24px;overflow:hidden;box-shadow:0 20px 60px #0005}.detail-cover{height:245px;position:relative;background:#ddd}.detail-cover img{width:100%;height:100%;object-fit:cover}.close{position:absolute;top:12px;right:12px;border:0;border-radius:50%;width:40px;height:40px;background:#073c2ecc;color:white;font-size:22px}.detail-content{padding:18px}.detail-content h2{color:var(--green);margin:0 0 8px;font-size:24px}.info-row{padding:13px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:center}.info-row .symbol{font-size:22px;color:var(--green)}.info-row small{display:block;color:var(--muted);margin-bottom:2px}.imam{display:flex;align-items:center;gap:13px;background:#f3ead8;padding:12px;border-radius:17px;margin-top:14px}.imam img{width:78px;height:78px;border-radius:14px;object-fit:cover;background:#ddd}.imam strong{font-size:17px}.audio{width:100%;margin-top:10px;height:38px}.actions{display:flex;gap:9px;margin-top:15px}.action{flex:1;text-align:center;text-decoration:none;border-radius:13px;padding:12px 8px;background:var(--green);color:white;font-weight:700}.action.secondary{background:#e9dfc9;color:var(--green)}
+@media(min-width:600px){main{padding:24px}.mosque-list{grid-template-columns:repeat(2,minmax(0,1fr))}.mosque-card img{height:180px}}
+</style>
+</head>
+<body><div class="shell">
+<header class="top"><div class="brand"><div><h1>مساجد جمعية الراكة</h1><p>دليل المساجد والمعلومات والخدمات</p></div><div class="brand-mark">۞</div></div><div class="search-wrap"><span class="search-icon">⌕</span><input id="search" type="search" placeholder="ابحث باسم المسجد أو الحي..." autocomplete="off"></div></header>
+<main>
+<section class="prayer-card"><div class="prayer-title"><strong>أوقات الصلاة في الدمام</strong><small id="prayer-date">جارٍ التحديث...</small></div><div class="prayer-grid" id="prayer-grid"><div class="loading" style="grid-column:1/-1">جارٍ تحميل المواقيت</div></div><div class="source-note" id="prayer-source">المواقيت محسوبة آلياً حسب إعدادات أم القرى</div></section>
+<div class="section-head"><h2>مساجدنا</h2><span id="mosque-count">—</span></div>
+<div id="mosque-list" class="mosque-list"><div class="loading">جارٍ تحميل المساجد</div></div>
+</main><nav class="bottom"><a href="https://dawah-rakah.org.sa/" target="_blank" rel="noopener">جمعية الراكة الدعوية · تواصل معنا</a></nav></div>
+<div class="modal" id="detail-modal" role="dialog" aria-modal="true"><div class="detail"><div class="detail-cover"><img id="d-image" alt="صورة المسجد"><button class="close" id="close-detail" aria-label="إغلاق">×</button></div><div class="detail-content"><h2 id="d-name"></h2><div id="d-location" class="mosque-meta"></div><div class="info-row"><span class="symbol">📍</span><div><small>الموقع</small><strong id="d-address">—</strong></div></div><div class="info-row"><span class="symbol">🕌</span><div><small>صلاة الجمعة</small><strong id="d-friday">—</strong></div></div><div class="imam"><img id="d-imam-photo" alt="صورة الإمام"><div style="flex:1"><small style="color:#718078">إمام المسجد</small><strong id="d-imam">غير محدد</strong><audio id="d-audio" class="audio" controls style="display:none"></audio></div></div><div class="actions"><a id="d-map" class="action" target="_blank" rel="noopener">الاتجاه إلى المسجد</a><button id="share-mosque" class="action secondary">مشاركة المسجد</button></div></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL='https://caxtxwgxpfugiviaahwx.supabase.co';
+const SUPABASE_KEY='sb_publishable_TSi0GlkTfXHN0ebrGru8Pg_ANNWLbzF';
+const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const FALLBACK_IMAGE='https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1000&q=85';
+let mosques=[];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function dateParts(){const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Riyadh',day:'2-digit',month:'2-digit',year:'numeric'}).formatToParts(new Date());const v={};p.forEach(x=>v[x.type]=x.value);return v.day+'-'+v.month+'-'+v.year}
+function fmtTime(value){if(!value)return'—';const parts=value.split(':');let h=Number(parts[0]),m=parts[1]||'00';const ap=h>=12?'م':'ص';h=h%12||12;return h+':'+m+' '+ap}
+async function loadPrayerTimes(){
+ const grid=document.getElementById('prayer-grid');
+ try{
+  const url='https://api.aladhan.com/v1/timings/'+dateParts()+'?latitude=26.4207&longitude=50.0888&method=4&school=0&timezonestring=Asia%2FRiyadh';
+  const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw new Error('API '+response.status);
+  const json=await response.json();if(json.code!==200)throw new Error('Prayer API error');
+  const t=json.data.timings;const items=[['الفجر',t.Fajr,'🌅'],['الظهر',t.Dhuhr,'☀️'],['العصر',t.Asr,'🌤️'],['المغرب',t.Maghrib,'🌇'],['العشاء',t.Isha,'🌙']];
+  grid.innerHTML=items.map(x=>'<div class="prayer"><div class="picon">'+x[2]+'</div><b>'+x[0]+'</b><time>'+fmtTime(x[1])+'</time></div>').join('');
+  document.getElementById('prayer-date').textContent=new Intl.DateTimeFormat('ar-SA',{dateStyle:'full',timeZone:'Asia/Riyadh'}).format(new Date());
+ }catch(e){grid.innerHTML='<div class="empty" style="grid-column:1/-1">تعذّر جلب أوقات الصلاة حالياً. تحقق من الاتصال بالإنترنت.</div>';document.getElementById('prayer-date').textContent='';}
+}
+function renderMosques(){
+ const q=document.getElementById('search').value.trim().toLowerCase();
+ const filtered=mosques.filter(m=>[m.name,m.district,m.address,m.city].some(v=>String(v||'').toLowerCase().includes(q)));
+ document.getElementById('mosque-count').textContent=filtered.length+' مسجد';
+ const root=document.getElementById('mosque-list');
+ if(!filtered.length){root.innerHTML='<div class="empty">لا توجد مساجد مطابقة للبحث حالياً</div>';return}
+ root.innerHTML=filtered.map(m=>'<article class="mosque-card" data-id="'+m.id+'"><img src="'+esc(m.image_url||FALLBACK_IMAGE)+'" alt="'+esc(m.name)+'" loading="lazy" onerror="this.src=FALLBACK_IMAGE"><div class="mosque-body"><h3>'+esc(m.name)+'</h3><div class="mosque-meta">'+(m.district?'<span class="tag">📍 '+esc(m.district)+'</span>':'')+(m.imam_name?'<span class="tag">الإمام: '+esc(m.imam_name)+'</span>':'')+'</div></div></article>').join('');
+ root.querySelectorAll('.mosque-card').forEach(el=>el.addEventListener('click',()=>openMosque(el.dataset.id)));
+}
+async function loadMosques(){
+ const root=document.getElementById('mosque-list');
+ const {data,error}=await db.from('mosques').select('*').eq('active',true).order('sort_order').order('name');
+ if(error){root.innerHTML='<div class="empty">تعذّر تحميل قائمة المساجد. يرجى المحاولة لاحقاً.</div>';return}
+ mosques=data||[];renderMosques();
+}
+function openMosque(id){
+ const m=mosques.find(x=>x.id===id);if(!m)return;
+ document.getElementById('d-image').src=m.image_url||FALLBACK_IMAGE;
+ document.getElementById('d-name').textContent=m.name;
+ document.getElementById('d-location').textContent=[m.city,m.district].filter(Boolean).join(' · ');
+ document.getElementById('d-address').textContent=m.address||[m.district,m.city].filter(Boolean).join('، ')||'غير محدد';
+ document.getElementById('d-friday').textContent=m.friday_prayer?'تقام صلاة الجمعة في هذا المسجد':'لا تقام صلاة الجمعة في هذا المسجد';
+ document.getElementById('d-imam').textContent=m.imam_name||'لم تتم إضافة اسم الإمام';
+ document.getElementById('d-imam-photo').src=m.imam_photo_url||FALLBACK_IMAGE;
+ const audio=document.getElementById('d-audio');audio.style.display=m.recitation_url?'block':'none';audio.src=m.recitation_url||'';
+ const map=document.getElementById('d-map');map.href=(m.latitude&&m.longitude)?'https://www.google.com/maps/dir/?api=1&destination='+m.latitude+','+m.longitude:'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent([m.name,m.address,m.city].filter(Boolean).join(' '));
+ document.getElementById('share-mosque').onclick=()=>{const text=m.name+' - '+[m.address,m.district,m.city].filter(Boolean).join('، ');if(navigator.share)navigator.share({title:m.name,text:text,url:location.href+'#mosque-'+m.id}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(text).then(()=>alert('تم نسخ معلومات المسجد'))};
+ document.getElementById('detail-modal').classList.add('show');document.body.style.overflow='hidden';
+}
+function closeDetail(){document.getElementById('detail-modal').classList.remove('show');document.body.style.overflow=''}
+document.getElementById('close-detail').addEventListener('click',closeDetail);
+document.getElementById('detail-modal').addEventListener('click',e=>{if(e.target.id==='detail-modal')closeDetail()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail()});
+document.getElementById('search').addEventListener('input',renderMosques);
+loadPrayerTimes();loadMosques();
+setInterval(loadPrayerTimes,60*60*1000);
+if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+</script></body></html>
