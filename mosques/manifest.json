@@ -1,0 +1,26 @@
+{
+  "name": "مساجد جمعية الراكة الدعوية",
+  "short_name": "مساجد الراكة",
+  "description": "دليل مساجد جمعية الراكة الدعوية ومعلومات الأئمة وأوقات الصلاة",
+  "start_url": "/klimat/mosques/",
+  "display": "standalone",
+  "background_color": "#f5ecd9",
+  "theme_color": "#073c2e",
+  "orientation": "portrait",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
